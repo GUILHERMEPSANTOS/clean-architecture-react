@@ -17,8 +17,6 @@
       },
       "allowJs": true,
       "resolveJsonModule": true,
-      "allowSyntheticDefaultImports": true,
-      "forceConsistentCasingInFileNames": true,
       "isolatedModules": false,
       "noEmit": true
     },
