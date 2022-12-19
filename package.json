@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/GUILHERMEPSANTOS/clean-react/issues"
   },
-  "homepage": "https://github.com/GUILHERMEPSANTOS/clean-react#readme"
+  "homepage": "https://github.com/GUILHERMEPSANTOS/clean-react#readme",
+  "devDependencies": {
+    "git-commit-msg-linter": "^4.4.0"
+  }
 }
