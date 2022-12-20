@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/GUILHERMEPSANTOS/clean-react#readme",
   "devDependencies": {
+    "@types/jest": "^29.2.4",
     "@types/node": "^18.11.17",
     "@typescript-eslint/eslint-plugin": "^5.47.0",
     "@typescript-eslint/parser": "^5.47.0",
@@ -34,6 +36,7 @@
     "git-commit-msg-linter": "^4.4.0",
     "husky": "^8.0.2",
     "lint-staged": "^13.1.0",
+    "ts-jest": "^29.0.3",
     "typescript": "^4.9.4"
   }
 }

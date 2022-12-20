@@ -10,9 +10,10 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true
+            "jsx": true,
+            "tsx": true
         },
-        "project": "./tsconfig.json",
+        // "project": "./tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
@@ -21,6 +22,8 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "linebreak-style": 0,
+        "import/prefer-default-export": "off",
         "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/strict-boolean-expressions": "off"
     }
