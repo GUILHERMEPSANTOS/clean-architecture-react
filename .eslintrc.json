@@ -22,7 +22,10 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-unused-vars": "off",
+        "no-undef": "off",
         "linebreak-style": 0,
+        "class-methods-use-this": "off",
         "import/prefer-default-export": "off",
         "@typescript-eslint/consistent-type-definitions": "off",
         "@typescript-eslint/strict-boolean-expressions": "off"
