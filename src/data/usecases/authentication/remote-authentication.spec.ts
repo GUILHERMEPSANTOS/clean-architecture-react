@@ -1,14 +1,7 @@
-import { HttpPostClient } from 'data/protocols/http/http-post-client';
+import { HttpPostClient } from '../../protocols/http/http-post-client';
 import { RemoteAuthentication } from './remote-authentication';
 
-class HttpPostClientSpy implements HttpPostClient {
-    public url?: string;
-
-    async post(url: string): Promise<void> {
-        this.url = url;
-        return Promise.resolve();
-    }
-}
+import { HttpPostClientSpy } from '../../test/mock-http-client';
 
 describe('RemoteAuthentication', () => {
     test('Should call HttpClient with correct URL', () => {
