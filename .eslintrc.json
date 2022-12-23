@@ -5,6 +5,7 @@
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:promise/recommended",
         "airbnb"
     ],
     "parser": "@typescript-eslint/parser",
@@ -22,6 +23,11 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "no-empty-function": "off",
+        "no-useless-constructor": "off",
+        "indent":"off",
+        "max-classes-per-file": "off",
+        "no-empty-pattern": "off",
         "no-unused-vars": "off",
         "import/no-unresolved": "off",
         "no-undef": "off",
