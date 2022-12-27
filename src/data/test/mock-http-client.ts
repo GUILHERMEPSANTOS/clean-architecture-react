@@ -3,7 +3,7 @@ import { HttpPostClient, HttpPostClientParams } from '../protocols/http/http-pos
 export class HttpPostClientSpy implements HttpPostClient {
     public url?: string;
 
-    public body?: any;
+    public body?: object;
 
     async post({ url, body }: HttpPostClientParams): Promise<void> {
         this.url = url;
