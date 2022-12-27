@@ -21,6 +21,7 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "import/no-extraneous-dependencies": "off",
         "no-empty-function": "off",
         "no-useless-constructor": "off",
         "indent":"off",
