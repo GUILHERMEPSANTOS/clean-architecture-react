@@ -1,4 +1,4 @@
-export enum StatusCode {
+export enum HttpStatusCode {
     ok = 200,
     created = 201,
     accepted = 202,
@@ -12,5 +12,5 @@ export enum StatusCode {
 
 export type HttpResponse<Response> = {
     data?: Response,
-    status: StatusCode,
+    status: HttpStatusCode,
 }
