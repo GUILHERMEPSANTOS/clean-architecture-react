@@ -5,7 +5,8 @@ import { RemoteAuthentication } from './remote-authentication';
 import { HttpPostClientSpy } from '@/data/test/mock-http-client';
 import { mockAuthentication } from '@/domain/test/mock-authentication';
 import { InvalidCredentialError } from '@/domain/errors/invalid-credential-error';
-import { StatusCode } from '@/data/protocols/http/http-response';
+import { HttpStatusCode } from '@/data/protocols/http/http-response';
+import { UnexpectedError } from '@/domain/errors/unexpected-error';
 
 type SutTypes = {
     sut: RemoteAuthentication,
@@ -48,11 +49,53 @@ describe('RemoteAuthentication', () => {
         const params = mockAuthentication();
 
         httpPostClientSpy.response = {
-            status: StatusCode.unauthorized
+            status: HttpStatusCode.unauthorized
         }
 
         const promise = sut.auth(params);
 
         await expect(promise).rejects.toThrow(new InvalidCredentialError());
+    });
+
+    test('Should throw UnexpectedError if HttpPostClient returns 400', async () => {
+        const { httpPostClientSpy, sut } = makeSut();
+
+        const params = mockAuthentication();
+
+        httpPostClientSpy.response = {
+            status: HttpStatusCode.badRequest
+        }
+
+        const promise = sut.auth(params);
+
+        await expect(promise).rejects.toThrow(new UnexpectedError());
+    });
+
+    test('Should throw UnexpectedError if HttpPostClient returns 404', async () => {
+        const { httpPostClientSpy, sut } = makeSut();
+
+        const params = mockAuthentication();
+
+        httpPostClientSpy.response = {
+            status: HttpStatusCode.notFound
+        }
+
+        const promise = sut.auth(params);
+
+        await expect(promise).rejects.toThrow(new UnexpectedError());
+    });
+
+    test('Should throw UnexpectedError if HttpPostClient returns 500', async () => {
+        const { httpPostClientSpy, sut } = makeSut();
+
+        const params = mockAuthentication();
+
+        httpPostClientSpy.response = {
+            status: HttpStatusCode.internalServerError
+        }
+
+        const promise = sut.auth(params);
+
+        await expect(promise).rejects.toThrow(new UnexpectedError());
     });
 });
