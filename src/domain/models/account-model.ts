@@ -1,3 +1,3 @@
 export type AccountModel = {
-    aaccesToken: string;
+    accessToken: string;
 }

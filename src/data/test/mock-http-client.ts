@@ -4,15 +4,15 @@ import { HttpResponse, HttpStatusCode } from '@/data/protocols/http/http-respons
 export class HttpPostClientSpy implements HttpPostClient {
     public url?: string;
 
-    public body?: object;
+    public body?: any;
 
     public response: HttpResponse<any> = {
         status: HttpStatusCode.ok,
     };
 
-    async post<Response>({ url, body }: HttpPostClientParams): Promise<HttpResponse<Response>> {
+    async post<Response, Params>({ url, body }: HttpPostClientParams<Params>): Promise<HttpResponse<Response>> {
         this.url = url;
-        this.body = body;
+        this.body = body as Params;
 
         return Promise.resolve(this.response);
     }
