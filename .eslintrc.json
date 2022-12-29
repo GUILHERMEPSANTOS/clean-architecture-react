@@ -21,6 +21,8 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "@typescript-eslint/no-floating-promises": "error",
+        "no-shadow": "off",
         "import/no-extraneous-dependencies": "off",
         "no-empty-function": "off",
         "no-useless-constructor": "off",
