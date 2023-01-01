@@ -1,7 +1,11 @@
-import { HttpPostClient, HttpPostClientParams } from '@/data/protocols/http/http-post-client';
-import { HttpResponse, HttpStatusCode } from '@/data/protocols/http/http-response';
+import {
+    HttpPostClient,
+    HttpPostClientParams,
+    HttpResponse,
+    HttpStatusCode
+} from '@/data/protocols/http';
 
-export class HttpPostClientSpy implements HttpPostClient {
+export class HttpPostClientSpy<Response, Params> implements HttpPostClient<Response, Params> {
     public url?: string;
 
     public body?: any;
@@ -10,7 +14,7 @@ export class HttpPostClientSpy implements HttpPostClient {
         status: HttpStatusCode.ok,
     };
 
-    async post<Response, Params>({ url, body }: HttpPostClientParams<Params>): Promise<HttpResponse<Response>> {
+    async post({ url, body }: HttpPostClientParams<Params>): Promise<HttpResponse<Response>> {
         this.url = url;
         this.body = body as Params;
 
