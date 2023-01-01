@@ -1,6 +1,6 @@
 import { HttpResponse } from './http-response';
 
-export type HttpPostClientParams<Params>= {
+export type HttpPostClientParams<Params> = {
     url: string;
     body?: Params
 }
