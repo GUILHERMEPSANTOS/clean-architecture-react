@@ -7,6 +7,6 @@ export class AxiosHttpClient<Response, Params>
 {
     async post({ url, body }: HttpPostClientParams<Params>): Promise<void> {
 
-        await axios(url);
+        await axios.post(url);
     }
 }

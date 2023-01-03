@@ -19,7 +19,7 @@ const mockSut = (): SutTypes => {
 }
 
 describe("AxiosHttpClient", () => {
-    test("Should call axios with correct URL", async () => {
+    test("Should call axios with correct URL and ", async () => {
         const { sut } = mockSut();
         
         const url = faker.internet.url();
@@ -27,6 +27,6 @@ describe("AxiosHttpClient", () => {
         
         await sut.post({ url: url, body: body });
 
-        expect(mockedAxios).toHaveBeenCalledWith(url);
+        expect(mockedAxios.post).toHaveBeenCalledWith(url);
     });
 });
