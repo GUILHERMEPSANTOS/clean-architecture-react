@@ -1,28 +1,29 @@
 import { AxiosHttpClient } from "./axios-http-client";
-import { mockPostRequest, mockPostResponse } from "@/infra/test/mock-post-request";
 
-import axios from 'axios';
+import { mockAxios } from "@/infra/test";
+import { mockPostRequest } from "@/data/test";
+
+import axios from "axios";
 
 jest.mock('axios');
-const mockedAxios = axios as jest.Mocked<typeof axios>;
-
-mockedAxios.post.mockResolvedValue(mockPostResponse());
 
 type SutTypes = {
     sut: AxiosHttpClient<any, any>
+    mockedAxios: jest.Mocked<typeof axios>
 }
 
 const mockSut = (): SutTypes => {
     const sut = new AxiosHttpClient<any, any>();
-
+    const mockedAxios = mockAxios();
     return {
-        sut
+        sut,
+        mockedAxios
     }
 }
 
 describe("AxiosHttpClient", () => {
     test("Should call axios with correct values ", async () => {
-        const { sut } = mockSut();
+        const { sut, mockedAxios } = mockSut();
         const { url, body } = mockPostRequest();
 
         await sut.post({ url: url, body: body });
@@ -31,7 +32,7 @@ describe("AxiosHttpClient", () => {
     });
 
     test("Should call axios with correct values ", async () => {
-        const { sut } = mockSut();
+        const { sut, mockedAxios } = mockSut();
         const { url, body } = mockPostRequest();
 
         await sut.post({ url: url, body: body });
@@ -40,11 +41,11 @@ describe("AxiosHttpClient", () => {
     });
 
     test("Should call axios and return a value", async () => {
-        const { sut } = mockSut();
+        const { sut, mockedAxios } = mockSut();
         const { url, body } = mockPostRequest();
 
         const httpResponse = await sut.post({ url: url, body: body });
 
-        expect(httpResponse).toEqual(mockPostResponse())
+        expect(httpResponse).toEqual(await mockedAxios.post.mock.results[0].value)
     })
 });
