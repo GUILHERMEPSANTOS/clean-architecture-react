@@ -3,6 +3,7 @@ import type { Config } from 'jest';
 const config: Config = {
   collectCoverageFrom: [
     '<rootDir>/src/**/*.{ts, tsx}',
+    '!**/*.d.ts'
   ],
   coverageDirectory: 'coverage',
   testEnvironment: 'jsdom',
@@ -11,6 +12,7 @@ const config: Config = {
   },
   moduleNameMapper: {
     '@/(.*)': '<rootDir>/src/$1',
+    '\\.scss$': 'identity-obj-proxy'
   },
 };
 
