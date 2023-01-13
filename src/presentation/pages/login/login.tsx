@@ -1,3 +1,4 @@
+import Spinner from "@/presentation/components/spinner/spinner";
 import React from "react";
 import Styles from "./login-styles.scss";
 
@@ -25,8 +26,14 @@ const Login = () => {
           />
           <span className={Styles.status}>🔴</span>
         </div>
-        <button className={Styles.submit} type="submit">Entrar</button>
+        <button className={Styles.submit} type="submit">
+          Entrar
+        </button>
         <span className={Styles.link}>criar conta</span>
+        <div className={Styles.errorWrapper}>
+          <Spinner className={Styles.spinner}/>
+          <span className={Styles.error}>Erro</span>
+        </div>
       </form>
       <footer className={Styles.footer}></footer>
     </div>

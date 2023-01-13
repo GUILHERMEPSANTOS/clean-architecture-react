@@ -1,9 +1,4 @@
-$white: #FFF;
-$black: #000;
-$background: #f2f2f2;
-$primary: #880E4F;
-$primaryDark: #560027;
-$primaryLight: #BC477B;
+@import '../../pages/styles/colors.scss';
 
 * {
     font-family: "Roboto", sans-serif;
@@ -13,11 +8,9 @@ $primaryLight: #BC477B;
     box-sizing: border-box;
 }
 
-
 body {
     background-color: $background;
 }
-
 
 input[type="password"],
 input[type="email"] {
@@ -103,7 +96,7 @@ button {
                 cursor: help;
             }
         }
-        
+
         .submit {
             margin-top: 32px;
         }
@@ -111,12 +104,27 @@ button {
         .link {
             text-align: center;
             color: $primary;
-            text-transform:  lowercase;
+            text-transform: lowercase;
             margin-top: 16px;
             cursor: pointer;
 
             &:hover {
                 text-decoration: underline;
+            }
+        }
+
+        .errorWrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .error {
+                margin-top: 30px;
+                color: $primaryLight;
+            }
+
+            .spinner {
+                margin-top: 30px;
             }
         }
     }
