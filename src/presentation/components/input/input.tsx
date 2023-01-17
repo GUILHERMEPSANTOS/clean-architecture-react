@@ -8,9 +8,13 @@ type InputProps = React.DetailedHTMLProps<
 >;
 
 const Input = (props: InputProps) => {
+  const enableInput = (event: React.FocusEvent<HTMLInputElement, Element>) => {
+    event.target.readOnly = false;
+  };
+
   return (
     <div className={Styles.inputWrap}>
-      <input {...props} />
+      <input {...props} readOnly onFocus={enableInput} />
       <span className={Styles.status}>🔴</span>
     </div>
   );
