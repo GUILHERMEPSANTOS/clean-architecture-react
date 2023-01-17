@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { Login } from "../presentation/pages";
+import { Router } from "../presentation/components";
 
 const container = document.getElementById("main");
 
-ReactDOM.createRoot(container as HTMLElement).render(<Login />);
+ReactDOM.createRoot(container as HTMLElement).render(<Router />);
