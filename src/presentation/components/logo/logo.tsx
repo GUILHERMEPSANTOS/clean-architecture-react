@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 const Logo = () => {
   return (
@@ -9,4 +9,4 @@ const Logo = () => {
   );
 };
 
-export default Logo;
+export default memo(Logo);
