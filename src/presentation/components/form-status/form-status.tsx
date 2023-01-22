@@ -6,12 +6,12 @@ import Spinner from "../spinner/spinner";
 import Styles from "./form-styles.scss";
 
 const FormStatus = () => {
-  const { isLoading, errorMessage } = useContext(Context);
+  const { isLoading, errorMain } = useContext(Context);
 
   return (
     <div data-testid="error-wrap" className={Styles.errorWrapper}>
       {isLoading && <Spinner className={Styles.spinner} />}
-      {errorMessage && <span className={Styles.error}>Erro</span>}
+      {errorMain && <span className={Styles.error}>{errorMain}</span>}
     </div>
   );
 };

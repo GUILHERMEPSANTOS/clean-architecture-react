@@ -11,10 +11,23 @@ import Context, { StateType } from "@/presentation/contexts/form/form-context";
 
 import Styles from "./login-styles.scss";
 
+type LoginFormType = {
+  email: string;
+  password: string;
+};
+
 const Login = () => {
-  const [state] = useState<StateType>({
+  const [state] = useState<StateType<LoginFormType>>({
     isLoading: false,
-    errorMessage: "",
+    values: {
+      email: "",
+      password: "",
+    },
+    errors: {
+      password: "Campo obrigatório",
+      email: "Campo obrigatório",
+    },
+    errorMain: "",
   });
 
   return (
@@ -29,7 +42,12 @@ const Login = () => {
             name="password"
             placeholder="Digite sua senha"
           />
-          <button data-testid="submit" disabled className={Styles.submit} type="submit">
+          <button
+            data-testid="submit"
+            disabled
+            className={Styles.submit}
+            type="submit"
+          >
             Entrar
           </button>
           <span className={Styles.link}>criar conta</span>
